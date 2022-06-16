@@ -1,18 +1,20 @@
-package Model;
-
-import java.util.Date;
+package com.bootcamp.model;
 
 public class Order {
     private int orderId;
     private String description;
     private int totalAmount;
     private String orderDate;
+    private Customer customer;
+    private Company company;
 
-    public Order(int orderId, String description, int totalAmount, String orderDate) {
+    public Order(int orderId, String description, int totalAmount, String orderDate, Customer customer, Company company ) {
         this.orderId = orderId;
         this.description = description;
-        this.totalAmount = totalAmount;
+        this.totalAmount = (int) customer.discount(totalAmount);
         this.orderDate = orderDate;
+        this.customer = customer;
+        this.company = company;
     }
 
     public int getOrderId() {
@@ -46,4 +48,21 @@ public class Order {
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
 }

@@ -1,21 +1,19 @@
-package Model;
+package com.bootcamp.model;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Company {
     private int companyId;
     private String name;
     private String sector;
-
     private Order order;
-    private List<Order> orderList;
+    private Map<Customer, Order> companyOrderList = new HashMap<>();
 
-    public Company(int companyId, String name, String sector, Order order, List<Order> orderList) {
+    public Company(int companyId, String name, String sector) {
         this.companyId = companyId;
         this.name = name;
         this.sector = sector;
-        this.order = order;
-        this.orderList = orderList;
     }
 
 
@@ -43,11 +41,13 @@ public class Company {
         this.sector = sector;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
+    public Map<Customer, Order> getCompanyOrderList() {
+        return companyOrderList;
     }
 
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public void setCompanyOrderList(Map<Customer, Order> companyOrderList) {
+        this.companyOrderList = companyOrderList;
     }
+
+
 }
